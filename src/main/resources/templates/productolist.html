@@ -15,6 +15,8 @@
         h1 {
             text-align: center;
             color: #333;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
         }
 
         table {
@@ -62,7 +64,7 @@
 
     <h1>Listado de Productos</h1>
 
-	<a style="margin-left: 190px;"class="btn btn-success">Registrar</a>
+	<a href="registrar"style="margin-left: 190px;"class="btn btn-success">Registrar</a>
     <table>
         <thead>
             <tr>
@@ -89,7 +91,7 @@
                 <td th:text="${Producto.estadocl3}">Disponible</td>
                 <td th:text="${Producto.descripcl3}">Descripción del Producto 1</td>
                 <td>
-					<a class="btn btn-success">Editar</a>
+					<a th:href="@{'/Actualizar/'+${Producto.idproductocl3}}" class="btn btn-success">Editar</a>
 					<a class="btn btn-danger">Eliminar</a>
 					
 				</td>
