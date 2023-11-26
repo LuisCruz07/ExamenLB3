@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .btn {
+        display: inline-block;
+        padding: 8px 12px;
+        margin-right: 5px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .btn-success {
+        background-color: rgb(0, 128, 255); /* Verde */
+    }
+
+    .btn-danger {
+        background-color: #dc3545; /* Rojo */
+    }
+    </style>
+</head>
+<body>
+
+    <h1>Listado de Productos</h1>
+
+	<a style="margin-left: 190px;"class="btn btn-success">Registrar</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio Venta</th>
+                <th>Stock</th>
+                <th>Precio Compra</th>
+                <th>Estado</th>
+                <th>Descripción</th>
+                <th ></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí irían las filas de datos obtenidos de tu base de datos -->
+            <tr th:each="Producto :${lista}">
+				
+				
+                <td th:text="${Producto.idproductocl3}">1</td>
+                <td th:text="${Producto.nombrecl3}">Producto 1</td>
+                <td th:text="${Producto.precioventacl3}">20.00</td>
+                <td th:text="${Producto.stock}">50</td>
+                <td th:text="${Producto.preciocompcl3}">15.00</td>
+                <td th:text="${Producto.estadocl3}">Disponible</td>
+                <td th:text="${Producto.descripcl3}">Descripción del Producto 1</td>
+                <td>
+					<a class="btn btn-success">Editar</a>
+					<a class="btn btn-danger">Eliminar</a>
+					
+				</td>
+            </tr>
+            <!-- Puedes repetir este bloque para cada producto -->
+        </tbody>
+    </table>
+
+</body>
+</html>
