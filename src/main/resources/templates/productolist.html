@@ -92,7 +92,12 @@
                 <td th:text="${Producto.descripcl3}">Descripción del Producto 1</td>
                 <td>
 					<a th:href="@{'/Actualizar/'+${Producto.idproductocl3}}" class="btn btn-success">Editar</a>
-					<a class="btn btn-danger">Eliminar</a>
+					<form th:action="@{/EliminarProducto}" method="post">
+                        <input type="hidden" th:value="${Producto.idproductocl3}" name="id">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                  
+					</form>
+					
 					
 				</td>
             </tr>

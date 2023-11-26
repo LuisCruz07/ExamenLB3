@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entidad.Producto;
 import com.example.demo.repositorio.interfacepro;
@@ -35,8 +36,7 @@ public class ProductoControllador {
 	
 	@PostMapping("/SafeProducto")
 	public String GuardarProducto(Model model,@ModelAttribute Producto registpro) {
-		interproduc.save(registpro);
-		
+		interproduc.save(registpro);	
 		return "redirect:/productos";
 		
 	}
@@ -48,5 +48,10 @@ public class ProductoControllador {
 		return "registrarProducto";
 	}
 	
+	@PostMapping("/EliminarProducto")
+   public String EliminarProducto(@RequestParam Integer id) {
+		interproduc.deleteById(id);
+		return "redirect:/productos";
+	}
 	
 }
